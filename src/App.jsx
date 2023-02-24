@@ -1,16 +1,16 @@
-import { useState } from 'react'
-import './App.css'
+import React from 'react';
+import './App.css';
 import {
   BrowserRouter as Router,
   Routes,
   Route,
 } from "react-router-dom";
 import { Navbar } from './Navbar';
-import {Snake} from './Snake';
+import Snake from './games/snake';
+// import {Snake} from './assets/snake';
 
 
 function App() {
-
   return (
     <div className="App">
       <Router>
