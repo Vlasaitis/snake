@@ -1,6 +1,6 @@
 import React, {useEffect, useRef} from 'react'
 import data from '../../data'
-import { SnakeMovement } from './SnakeMovement';
+import { SnakeMovement} from './SnakeMovement';
 
 let {snakePos, snakeAttributes, FPS} = data; 
 let now, elapsed;
@@ -35,6 +35,6 @@ function animate(snakePos, snakeAttributes, ctx, canvas) {
     then = now - (elapsed % fpsInterval);
 
     ctx.clearRect(0, 0, canvas.width, canvas.height); // clear canvas
-    SnakeMovement(snakePos, snakeAttributes, ctx); // Check direction + Move/Draw Snake
+    SnakeMovement(snakePos, snakeAttributes, ctx, canvas); // Check direction + Move/Draw Snake
   }
 }

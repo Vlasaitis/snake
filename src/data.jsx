@@ -1,5 +1,5 @@
 const headStart = {x: 200, y: 200};
-const snakeHeight = 10, snakeWeight = 10;
+const snakeHeight = 20, snakeWeight = 20;
 
 export default {
     snakePos: [
@@ -16,12 +16,9 @@ export default {
         direction: "right",
     },
     apple: {
-        x: 0.5,
-        y: 50,
-        width: 800/ 10 - 1,
-        height: 20,
-        density: 2,
-        colors: ["blue", "lightblue"],
+        w: snakeWeight,
+        h: snakeHeight,
+        color: "orange",
     },
-    FPS: 15, // how many times per second screen will refresh
+    FPS: 10, // how many times per second screen will refresh
 };
