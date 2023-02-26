@@ -1,14 +1,21 @@
 import { Snake } from './Snake';
 
-export function SnakeMovement(snakePos, snakeAttributes, ctx, canvas) {
+export function SnakeMovement(snakePos, snakeAttributes, ctx, canvas, apple) {
     window.addEventListener("keydown", e => checkDirection(e, snakeAttributes)); // if key is pressed, check direction
-    let newSnake = new Snake(snakePos, snakeAttributes, canvas, ctx);
-    newSnake.move();
-    if (!newSnake.isDead) {
-        newSnake.draw(ctx);
+    let newSnake = new Snake(snakePos, snakeAttributes, canvas);
+    let gameOver = newSnake.move(apple);
+    if (gameOver) {
+        return true;
     } else {
         newSnake.draw(ctx);
+        // newSnake.draw(ctx);
+        return false;
     }
+    // if (!newSnake.isDead) {
+    //     newSnake.draw(ctx);
+    // } else {
+    //     newSnake.draw(ctx);
+    // }
 }
 
 function checkDirection(e, snakeAttributes) {

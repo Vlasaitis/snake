@@ -1,14 +1,20 @@
-export function CollisionCheck(snakePos, snakeAttributes, canvas) {
-    // console.log(snakePos.x);
-    // console.log(snakePos.y);
-    if(snakePos.x >= canvas.width) {
+export function CollisionCheck(snakePos, canvas, snakeAttributes) {
+    // check for collision with side walls
+    const head = snakePos[0];
+    if(head.x > canvas.width - snakeAttributes.w) {
         return true;
-    } else if (snakePos.x < 0){
+    } else if (head.x < 0){
         return true;
-    } else if (snakePos.y >= canvas.height){
+    } else if (head.y > canvas.height - snakeAttributes.h){
         return true;
-    } else if (snakePos.y < 0){
+    } else if (head.y < 0){
         return true;
+    }
+    // check for collision with own body
+    for (let i = 1; i < snakePos.length; i++) {
+        if (snakePos[i].x === head.x && snakePos[i].y === head.y) {
+            return true;
+        }
     }
     return false;
 }

@@ -1,8 +1,8 @@
 import { CollisionCheck} from './CollisionCheck';
 
 export class Snake {
-    constructor(pos, snakeAttributes, canvas) {
-        this.pos = pos; // obj with x,y coordinates of each body part
+    constructor(snakePos, snakeAttributes, canvas) {
+        this.pos = snakePos; // obj with x,y coordinates of each body part
         this.attributes = snakeAttributes;
         this.isDead = snakeAttributes.isDead;
         this.canvas = canvas;
@@ -16,7 +16,7 @@ export class Snake {
             ctx.strokeRect(this.pos[i].x, this.pos[i].y, this.attributes.w, this.attributes.h); // x, y, w, h
         }
     }
-    move() {
+    move(apple, snakePos) {
         let newHead = {x: this.pos[0].x, y: this.pos[0].y};
         // right:
         if (this.attributes.direction === "right") {
@@ -28,11 +28,19 @@ export class Snake {
         } else if (this.attributes.direction === "down") {
             newHead.y += this.attributes.speed;
         }
-        if (CollisionCheck(newHead, this.attributes, this.canvas)) {
+        if (CollisionCheck(this.pos, this.canvas, this.attributes)) {
             this.isDead= true;
         } else {
             this.pos.unshift(newHead);
-            this.pos.pop();
-        }    
+            
+            if (!(this.pos[0].x === apple.x && this.pos[0].y === apple.y)) {
+                this.pos.pop();
+            }
+        }
+        if (this.isDead) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }
