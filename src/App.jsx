@@ -16,7 +16,7 @@ function App() {
       <Router>
         <Navbar/>
         <Routes>
-          <Route path="/" element={<h1>Home</h1>} />
+          <Route path="/" element={<Snake/>} />
           <Route path="/snake" element={<Snake/>} />
           <Route path="*" element={<h1>ERROR NOT FOUND</h1>} />
         </Routes>

@@ -4,7 +4,7 @@ import data from "../../data"
 
 export default function Snake() {
   return (
-    <div>
+    <div className='board'>
       <Board/>
     </div>
       

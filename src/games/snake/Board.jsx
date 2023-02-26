@@ -35,7 +35,6 @@ export default function Board() {
         return;
       } 
       let isGameOver = animate(snakePos, snakeAttributes, ctx, canvas, apple, setScore);
-      console.log(score)
       if (isGameOver) {
         gameOverRef.current = true;
       }
@@ -48,6 +47,7 @@ export default function Board() {
 
   return (
     <div>
+        <h3>Controls: WASD</h3>
         <h1>Score: {score}</h1>
         <canvas id="canvas" ref={canvasRef} height="600px" width="600px"/>
     </div>

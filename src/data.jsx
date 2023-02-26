@@ -16,6 +16,7 @@ export default {
         colors: ["green", "red"],
         isDead: false,
         direction: "right",
+        canMove: true,
     },
     apple: {
         x: -1,
